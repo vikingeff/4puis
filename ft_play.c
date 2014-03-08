@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 14:36:04 by fle-bach          #+#    #+#             */
-/*   Updated: 2014/03/08 19:48:10 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/08 22:44:03 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int			ft_player(void)
 	}
 	if (temp_val != -1)
 		return (ft_atoi(value) - 1);
+	while (buff[0] != 10)
+		read(0, buff, BUFF_SIZE);
 	return (temp_val);
 }
 
