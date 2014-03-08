@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 11:42:52 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/08 12:48:55 by gleger           ###   ########.fr       */
+/*   Updated: 2014/03/08 12:50:27 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int				check_args(char *line, char *col)
 			check_int = -1;
 	return (check_int);
 }
-void			check_size(char *line, char *col, t_gboard *board)
+int			check_size(char *line, char *col, t_gboard *board)
 {
 	int		check_int;
 
@@ -45,7 +45,7 @@ void			check_size(char *line, char *col, t_gboard *board)
 		ft_puterr(P4_ERROR);
 		ft_puterr(P4_COORDS);
 		ft_puterr("\n");
-		exit(1);
+		return (-1);
 	}
 	else
 	{
@@ -56,7 +56,8 @@ void			check_size(char *line, char *col, t_gboard *board)
 			ft_puterr(P4_ERROR);
 			ft_puterr(P4_SIZE);
 			ft_puterr("\n");
-			exit(2);
+			return (-1);
 		}
 	}
+	return (0);
 }

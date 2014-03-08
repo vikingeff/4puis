@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/23 15:03:18 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/08 12:48:54 by gleger           ###   ########.fr       */
+/*   Updated: 2014/03/08 12:52:18 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void			show_usage()
 int				main(int argc, char **argv)
 {
 	t_gboard			*p4;
-
+	
 	if ((p4 = init_game()) == NULL)
 		return (-1);
 	if (argc != 3)
@@ -32,7 +32,8 @@ int				main(int argc, char **argv)
 	}
 	else
 	{
-		check_size(argv[1], argv[2], p4);
+		if (check_size(argv[1], argv[2], p4) == -1)
+			return (-1);
 		bzero_board(p4);
 	}
 	return (0);

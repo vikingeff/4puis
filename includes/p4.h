@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/23 12:15:33 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/08 12:48:52 by gleger           ###   ########.fr       */
+/*   Updated: 2014/03/08 12:50:40 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void			ft_putchar_fd(const char c, int fd);
 void			ft_putendl_fd(const char *str, int fd);
 int				ft_atoi(const char *src);
 t_gboard		*init_game();
-void			check_size(char *line, char *col, t_gboard *board);
+int			check_size(char *line, char *col, t_gboard *board);
 int				check_args(char *line, char *col);
 int				memset_board(t_gboard *grid);
 void			bzero_board(t_gboard *grid);
