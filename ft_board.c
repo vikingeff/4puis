@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 12:24:59 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/08 16:50:10 by gleger           ###   ########.fr       */
+/*   Updated: 2014/03/08 19:46:21 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,5 @@ void			print_board(t_gboard *grid)
 		}
 		ft_putchar('\n');
 	}
+	ft_putchar('\n');
 }

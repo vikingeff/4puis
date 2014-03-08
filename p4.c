@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/23 15:03:18 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/08 17:59:54 by gleger           ###   ########.fr       */
+/*   Updated: 2014/03/08 20:06:17 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,31 @@ void			show_usage()
 	ft_puterr("\n");
 }
 
+int				check_poss(t_gboard *p4)
+{
+	int		y;
+	int		check;
+
+	check = 0;
+	y = 0;
+	while (y != p4->nb_columns)
+	{
+		if (p4->board[0][y] == 0)
+			check++;
+		y++;
+	}
+	if (check == 0)
+		ft_putendl("match null");
+	return (check);
+}
+
 int				main(int argc, char **argv)
 {
 	t_gboard			*p4;
 	int					move;
-	
+	int					win;
+
+	win = 0;
 	if ((p4 = init_game()) == NULL)
 		return (-1);
 	if (argc != 3)
@@ -37,34 +57,30 @@ int				main(int argc, char **argv)
 			return (-1);
 		bzero_board(p4);
 		print_board(p4);
-		/*ft_putchar('\n');
-		ft_play(p4, 2, 1);
-		ft_play(p4, 2, 2);
-		print_board(p4);
-		ft_putchar('\n');
-		ft_play(p4, 2, 1);
-		ft_play(p4, 2, 2);
-		print_board(p4);
-		ft_putchar('\n');
-		ft_play(p4, 2, 1);
-		ft_play(p4, 2, 2);
-		print_board(p4);
-		ft_putchar('\n');
-		ft_play(p4, 2, 3);
-		ft_play(p4, 1, 2);
-		print_board(p4);
-		ft_putchar('\n');
-		ft_play(p4, 2, 1);
-		ft_play(p4, 2, 2);
-		ft_play(p4, 10, 2);
-		print_board(p4);
-		ft_putchar('\n');*/
-		if ((move = ft_player()) == -1)
-			ft_putendl_fd("Columns are only numbers between ", 2);
-		else
-			ft_play(p4, move, 1);
-		print_board(p4);
-		ft_putchar('\n');
+		while (win == 0 && check_poss(p4))
+		{
+			if ((move = ft_player()) == -1)
+				ft_putendl_fd("Columns are only numbers between ", 2);
+			else
+				move = ft_play(p4, move, 1);
+			if (move != -1)
+			{
+				win = check_win(p4, 1);
+				print_board(p4);
+			}
+			if (win != 1)
+			{
+				if ((move = ft_player()) == -1)
+					ft_putendl_fd("Columns are only numbers between ", 2);
+				else
+					move = ft_play(p4, move, 2);
+				if (move != -1)
+				{
+					win = check_win(p4, 2);
+					print_board(p4);
+				}
+			}
+		}
 	}
 	return (0);
 }

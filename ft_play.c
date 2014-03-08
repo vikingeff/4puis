@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 14:36:04 by fle-bach          #+#    #+#             */
-/*   Updated: 2014/03/08 18:19:48 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/08 19:48:10 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ int			ft_player(void)
 int			ft_play(t_gboard *p4, int y, int player)
 {
 	int		save;
+	int		check;
 
+	check = -1;
 	save = p4->nb_lines - 1;
 	if (player != 1 && player != 2)
 		ft_putendl("This player doesn't exist.");
@@ -51,9 +53,12 @@ int			ft_play(t_gboard *p4, int y, int player)
 		if (save == -1)
 			ft_putendl("Column is full");
 		else
+		{
+			check = 0;
 			p4->board[save][y] = player;
+		}
 	}
 	else
 		ft_putendl("This column doesn't exist.");
-	return (0);
+	return (check);
 }

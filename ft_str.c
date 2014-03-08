@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 17:03:11 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/08 17:08:18 by gleger           ###   ########.fr       */
+/*   Updated: 2014/03/08 19:18:48 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 char		*ft_strdup(const char *s1)
 {
 	char	*str;
-	int		i;
 
-	i = 0;
 	str = malloc(sizeof(char) * (ft_strlen(s1) + 1));
 	if (!str)
 		return (NULL);
@@ -28,9 +26,7 @@ char		*ft_strdup(const char *s1)
 char		*ft_strjoin(const char *s1, const char *s2)
 {
 	char	*str;
-	int		i;
 
-	i = 0;
 	str = (char*)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!str)
 		return (NULL);
