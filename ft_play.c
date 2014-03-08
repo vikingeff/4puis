@@ -6,11 +6,21 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 14:36:04 by fle-bach          #+#    #+#             */
-/*   Updated: 2014/03/08 22:44:03 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/08 23:03:45 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <p4.h>
+
+char		*ft_temp(char *value, char *buff)
+{
+	char	*temp;
+
+	temp = value;
+	value = ft_strjoin(temp, buff);
+	free(temp);
+	return (value);
+}
 
 int			ft_player(void)
 {
@@ -19,14 +29,14 @@ int			ft_player(void)
 	char	*value;
 
 	temp_val = 0;
-	value = "";
+	value = ft_strdup("");
 	ft_putendl_fd("Where you wanna play:", 1);
 	while (temp_val != -1 && temp_val != 1)
 	{
 		read(0, buff, BUFF_SIZE);
 		buff[1] = '\0';
 		if (ft_isdigit(buff[0]))
-			value = ft_strjoin(value, buff);
+			value = ft_temp(value, buff);
 		else if (buff[0] != 10)
 			temp_val = -1;
 		else

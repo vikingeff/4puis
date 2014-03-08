@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/23 15:03:18 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/08 22:40:06 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/08 22:54:27 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,33 @@ int				main(int argc, char **argv)
 		print_board(p4);
 		while (win == 0 && check_poss(p4))
 		{
-			if ((move = ft_player()) == -1)
-				ft_putendl_fd("Columns are only numbers between ", 2);
-			else
-				move = ft_play(p4, move, 1);
-			if (move != -1)
+			move = -1;
+			while (move == -1)
 			{
-				win = check_win(p4, 1);
-				print_board(p4);
+				ft_putendl("player 1 :");
+				if ((move = ft_player()) == -1)
+					ft_putendl_fd("Columns are only numbers between ", 2);
+				else
+					move = ft_play(p4, move, 1);
+				if (move != -1)
+				{
+					win = check_win(p4, 1);
+					print_board(p4);
+				}
+			}
+			move = -1;
+			while (move == -1 && win != 1)
+			{
+				ft_putendl("player 2 :");
+				if ((move = ft_player()) == -1)
+					ft_putendl_fd("Columns are only numbers between ", 2);
+				else
+					move = ft_play(p4, move, 2);
+				if (move != -1)
+				{
+					win = check_win(p4, 2);
+					print_board(p4);
+				}
 			}
 		}
 	}
