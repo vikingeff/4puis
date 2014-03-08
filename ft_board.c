@@ -6,20 +6,20 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 12:24:59 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/08 19:46:21 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/08 21:38:58 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <p4.h>
 #include <stdio.h>
 
-t_gboard		*init_game()
+t_gboard		*init_game(void)
 {
 	t_gboard			*board;
 
-	board = malloc(sizeof (t_gboard));
+	board = malloc(sizeof(t_gboard));
 	if (board == NULL)
-		return NULL;
+		return (NULL);
 	return (board);
 }
 

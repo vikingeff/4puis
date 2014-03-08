@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 17:03:11 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/08 19:18:48 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/08 21:37:42 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char		*ft_strcat(char *s1, const char *s2)
 	return (s1);
 }
 
-char			*ft_strcpy(char *str, const char *src)
+char		*ft_strcpy(char *str, const char *src)
 {
 	int			loop;
 

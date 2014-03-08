@@ -6,13 +6,13 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/23 15:03:18 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/08 20:06:17 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/08 21:38:15 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <p4.h>
 
-void			show_usage()
+void			show_usage(void)
 {
 	ft_puterr(P4_USAGE);
 	ft_puterr(P4_RULE);
@@ -67,18 +67,6 @@ int				main(int argc, char **argv)
 			{
 				win = check_win(p4, 1);
 				print_board(p4);
-			}
-			if (win != 1)
-			{
-				if ((move = ft_player()) == -1)
-					ft_putendl_fd("Columns are only numbers between ", 2);
-				else
-					move = ft_play(p4, move, 2);
-				if (move != -1)
-				{
-					win = check_win(p4, 2);
-					print_board(p4);
-				}
 			}
 		}
 	}
