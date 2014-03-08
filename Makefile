@@ -6,7 +6,7 @@
 #    By: gleger <gleger@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/12/31 19:03:08 by gleger            #+#    #+#              #
-#    Updated: 2014/03/08 11:44:51 by gleger           ###   ########.fr        #
+#    Updated: 2014/03/08 12:48:56 by gleger           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ LIB		= -L /usr/lib -ltermcap
 SRC		=	ft_putstuff.c \
 			ft_putmore.c \
 			ft_check.c \
+			ft_board.c \
 			p4.c
 OBJ = $(SRC:.c=.o)
 

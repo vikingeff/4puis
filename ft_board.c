@@ -1,39 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   p4.c                                               :+:      :+:    :+:   */
+/*   ft_board.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/02/23 15:03:18 by gleger            #+#    #+#             */
+/*   Created: 2014/03/08 12:24:59 by gleger            #+#    #+#             */
 /*   Updated: 2014/03/08 12:48:54 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <p4.h>
 
-void			show_usage()
+t_gboard		*init_game()
 {
-	ft_puterr(P4_USAGE);
-	ft_puterr(P4_RULE);
-	ft_puterr("\n");
+	t_gboard			*board;
+
+	board = malloc(sizeof (t_gboard));
+	if (board == NULL)
+		return NULL;
+	return (board);
 }
 
-int				main(int argc, char **argv)
+int				memset_board(t_gboard *grid)
 {
-	t_gboard			*p4;
+	int					loop;
+	int					*buffer;
 
-	if ((p4 = init_game()) == NULL)
-		return (-1);
-	if (argc != 3)
+	loop = -1;
+	while (++loop < grid->nb_lines)
 	{
-		show_usage();
-		return (-1);
-	}
-	else
-	{
-		check_size(argv[1], argv[2], p4);
-		bzero_board(p4);
+		buffer = malloc(grid->nb_columns * sizeof(int));
+		if (buffer == NULL)
+			return (-1);
+		
+		grid->board[loop] = buffer;
 	}
 	return (0);
+}
+
+void			bzero_board(t_gboard *grid)
+{
+	int					loop;
+	int					index;
+
+	loop = -1;
+	index = -1;
+	memset_board(grid);
+	while (++loop < grid->nb_lines)
+	{
+		while (++index < grid->nb_columns)
+			grid->board[loop][index] = 0;	
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/23 12:15:33 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/08 12:14:13 by gleger           ###   ########.fr       */
+/*   Updated: 2014/03/08 12:48:52 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,7 @@ int				ft_atoi(const char *src);
 t_gboard		*init_game();
 void			check_size(char *line, char *col, t_gboard *board);
 int				check_args(char *line, char *col);
+int				memset_board(t_gboard *grid);
+void			bzero_board(t_gboard *grid);
 
 #endif		/* !__P4_H__ */
