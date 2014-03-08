@@ -6,7 +6,7 @@
 /*   By: fle-bach <fle-bach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 20:07:00 by fle-bach          #+#    #+#             */
-/*   Updated: 2014/03/08 20:32:54 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/08 21:10:44 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int			check_left_bis(t_gboard *p4, int player)
 		check = 0;
 		while (y_bis != -1 && x != -1)
 		{
-			if (p4->board[y_bis][y] == player)
+			if (p4->board[x][y_bis] == player)
 				check++;
 			else
 				check = 0;
@@ -85,7 +85,7 @@ int			check_right_bis(t_gboard *p4, int player)
 		check = 0;
 		while (y_bis != -1 && x != p4->nb_lines)
 		{
-			if (p4->board[y_bis][y] == player)
+			if (p4->board[x][y_bis] == player)
 				check++;
 			else
 				check = 0;
