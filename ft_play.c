@@ -6,17 +6,16 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 14:36:04 by fle-bach          #+#    #+#             */
-/*   Updated: 2014/03/08 17:54:42 by gleger           ###   ########.fr       */
+/*   Updated: 2014/03/08 18:19:48 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <p4.h>
-#include <stdio.h>
 
 int			ft_player(void)
 {
 	int		temp_val;
-	char	buff[BUFF_SIZE];
+	char	buff[BUFF_SIZE + 1];
 	char	*value;
 
 	temp_val = 0;
@@ -25,6 +24,7 @@ int			ft_player(void)
 	while (temp_val != -1 && temp_val != 1)
 	{
 		read(0, buff, BUFF_SIZE);
+		buff[1] = '\0';
 		if (ft_isdigit(buff[0]))
 			value = ft_strjoin(value, buff);
 		else if (buff[0] != 10)
