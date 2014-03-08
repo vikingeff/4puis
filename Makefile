@@ -6,11 +6,10 @@
 #    By: gleger <gleger@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/12/31 19:03:08 by gleger            #+#    #+#              #
-#    Updated: 2014/03/08 19:02:45 by fle-bach         ###   ########.fr        #
+#    Updated: 2014/03/08 19:08:06 by fle-bach         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-#essai
 CC		= gcc
 NAME	= puissance4
 FLAGS	= -Wall -Wextra -Werror -O3 -I ./includes
