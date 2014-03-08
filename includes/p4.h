@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/23 12:15:33 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/08 17:53:14 by gleger           ###   ########.fr       */
+/*   Updated: 2014/03/08 21:26:33 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@
 # define	P4_SIZE " The board must be at least 6 lines and 7 columns big."
 # define	P4_COORDS " Lines and columns must be numbers."
 
-typedef struct s_gboard		t_gboard;
-
 /*
 ** Type - Board value -> Print value
 ** Empty case - 0 -> Underscore
 ** Player 1 - 1 -> Red
 ** Player 2 - 2 -> Yellow
 */
+
+typedef struct s_gboard		t_gboard;
 
 struct						s_gboard
 {
@@ -43,26 +43,34 @@ struct						s_gboard
 };
 
 size_t			ft_strlen(const char *str);
-void			ft_putstr(const char *str);
-void			ft_putchar(const char c);
-void			ft_puterr(const char *str);
-void			ft_putendl(const char *str);
+
+t_gboard		*init_game(void);
+
+void			ft_putendl_fd(const char *str, int fd);
 void			ft_putstr_fd(const char *str, int fd);
 void			ft_putchar_fd(const char c, int fd);
-void			ft_putendl_fd(const char *str, int fd);
-int				ft_atoi(const char *src);
-t_gboard		*init_game();
-int				ft_isdigit(int number);
+void			ft_putendl(const char *str);
+void			print_board(t_gboard *grid);
+void			bzero_board(t_gboard *grid);
+void			ft_putstr(const char *str);
+void			ft_puterr(const char *str);
+void			ft_putchar(const char c);
+void			ft_putnbr(int number);
+
+char			*ft_strjoin(const char *s1, const char *s2);
+char			*ft_strcpy(char *str, const char *src);
+char			*ft_strcat(char *s1, const char *s2);
+char			*ft_strdup(const char *s1);
+
 int				check_size(char *line, char *col, t_gboard *board);
+int				ft_play(t_gboard *p4, int y, int player);
+int				check_right(t_gboard *p4, int player);
+int				check_left(t_gboard *p4, int player);
+int				check_win(t_gboard *p4, int player);
 int				check_args(char *line, char *col);
 int				memset_board(t_gboard *grid);
-void			bzero_board(t_gboard *grid);
-void			print_board(t_gboard *grid);
-int				ft_play(t_gboard *p4, int y, int player);
-int			ft_player(void);
-char			*ft_strdup(const char *s1);
-char			*ft_strjoin(const char *s1, const char *s2);
-char			*ft_strcat(char *s1, const char *s2);
-char			*ft_strcpy(char *str, const char *src);
+int				ft_atoi(const char *src);
+int				ft_isdigit(int number);
+int				ft_player(void);
 
 #endif		/* !__P4_H__ */
