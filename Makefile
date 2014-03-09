@@ -6,7 +6,7 @@
 #    By: gleger <gleger@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/12/31 19:03:08 by gleger            #+#    #+#              #
-#    Updated: 2014/03/09 01:44:22 by fle-bach         ###   ########.fr        #
+#    Updated: 2014/03/09 07:32:33 by fle-bach         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,9 @@ SRC		=	ft_putstuff.c \
 			ft_str.c \
 			ft_check_win.c \
 			ft_check_win_diag.c \
+			ft_ia.c \
+			check_three.c \
+			check.c \
 			p4.c
 OBJ = $(SRC:.c=.o)
 
