@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 17:03:11 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/08 21:37:42 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/09 13:40:47 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,13 @@ char		*ft_strcpy(char *str, const char *src)
 		str[loop] = src[loop];
 	str[loop] = '\0';
 	return (str);
+}
+
+void		board_error(t_gboard *grid)
+{
+	if (grid->error != NULL)
+	{
+		ft_putendl(grid->error);
+		grid->error = NULL;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 20:07:00 by fle-bach          #+#    #+#             */
-/*   Updated: 2014/03/09 12:26:18 by gleger           ###   ########.fr       */
+/*   Updated: 2014/03/09 12:30:04 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int			check_left_bis(t_gboard *p4, int player, int nb)
 		}
 		y--;
 	}
-	return (check);
+	return (0);
 }
 
 int			check_left(t_gboard *p4, int player, int nb)
@@ -96,7 +96,7 @@ int			check_right_bis(t_gboard *p4, int player, int nb)
 		}
 		y--;
 	}
-	return (check);
+	return (0);
 }
 
 int			check_right(t_gboard *p4, int player, int nb)

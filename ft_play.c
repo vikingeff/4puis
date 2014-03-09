@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 14:36:04 by fle-bach          #+#    #+#             */
-/*   Updated: 2014/03/09 01:55:03 by gleger           ###   ########.fr       */
+/*   Updated: 2014/03/09 13:58:24 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,11 @@ int			player(t_gboard *p4, char *cl, int player)
 	move = -1;
 	while (move == -1)
 	{
-		ft_putstr("player ");
-		ft_putnbr(player);
-		ft_putendl(" :");
+		ft_putendl("Your turn you mud !");
 		if ((move = ft_player()) == -1)
 		{
 			ft_putstr(cl);
-			ft_putendl_fd("Columns are only numbers between ", 2);
+			p4->error = COL_STR;
 		}
 		else
 		{
@@ -86,13 +84,13 @@ int			ft_play(t_gboard *p4, int y, int player)
 	check = -1;
 	save = p4->nb_lines - 1;
 	if (player != 1 && player != 2)
-		ft_putendl("This player doesn't exist.");
+		ft_putendl_fd("This player doesn't exist.", 2);
 	else if (y >= 0 && y < p4->nb_columns)
 	{
 		while (save != -1 && p4->board[save][y] != 0)
 			save--;
 		if (save == -1)
-			ft_putendl("Column is full");
+			p4->error = COL_FULL;
 		else
 		{
 			check = 0;
@@ -100,6 +98,6 @@ int			ft_play(t_gboard *p4, int y, int player)
 		}
 	}
 	else
-		ft_putendl("This column doesn't exist.");
+		p4->error = OVER_COL;
 	return (check);
 }

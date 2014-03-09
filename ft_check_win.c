@@ -6,11 +6,12 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 19:25:06 by fle-bach          #+#    #+#             */
-/*   Updated: 2014/03/09 12:16:52 by gleger           ###   ########.fr       */
+/*   Updated: 2014/03/09 13:42:50 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <p4.h>
+#include <stdio.h>
 
 int			check_lines(t_gboard *p4, int player)
 {
@@ -69,9 +70,11 @@ int			check_win(t_gboard *p4, int player)
 	if (check_lines(p4, player) == 1 || check_columns(p4, player) == 1
 		|| check_left(p4, player, 4) == 1 || check_right(p4, player, 4) == 1)
 	{
-		ft_putstr("player ");
-		ft_putchar((player + 48));
-		ft_putendl(" wins.");
+		if (player != p4->ia_id)
+		{
+			ft_putendl("Congratulation human... you win.");
+			ft_putendl("   .... This time !!!");
+		}
 		return (1);
 	}
 	return (0);

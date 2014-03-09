@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/09 00:15:56 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/09 12:13:49 by gleger           ###   ########.fr       */
+/*   Updated: 2014/03/09 13:08:25 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ int		ft_check_ia(t_gboard *p4, int player)
 		return (check);
 	if ((check = check_double_empty(p4, player)))
 		return (check);
-	ft_putendl("rand");
 	return ((rand() % (p4->nb_columns - 1)) + 1);
 }
 
@@ -77,6 +76,9 @@ int		ft_ia(t_gboard *p4, char *cl, int player)
 	print_board(p4);
 	win = check_win(p4, player);
 	if (win == 1)
-		ft_putendl("sorry for you, ia are the best ;)");
+	{
+		ft_putendl("Mouwhahahaha you're nothing to me..");
+		ft_putendl("    .... puny human !!!");
+	}
 	return (win);
 }

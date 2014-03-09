@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/23 15:03:18 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/09 12:12:09 by gleger           ###   ########.fr       */
+/*   Updated: 2014/03/09 13:38:29 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,16 @@ void			ft_p4(t_gboard *p4, char *cl)
 {
 	int			win;
 	int			nb_player;
-	int			ia;
 
 	srand(time(NULL));
-	ia = rand() % 2 + 1;
+	p4->ia_id = rand() % 2 + 1;
 	nb_player = 1;
 	win = 0;
 	bzero_board(p4);
 	print_board(p4);
 	while (win == 0 && check_poss(p4))
 	{
-		if (ia != nb_player)
+		if (p4->ia_id != nb_player)
 			win = player(p4, cl, nb_player);
 		else
 			win = ft_ia(p4, cl, nb_player);
@@ -82,7 +81,6 @@ int				main(int argc, char **argv)
 	{
 		if (check_size(argv[1], argv[2], p4) == -1)
 			return (-1);
-
 		ft_p4(p4, cl);
 	}
 	return (0);

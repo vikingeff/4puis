@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/23 12:15:33 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/09 12:12:37 by gleger           ###   ########.fr       */
+/*   Updated: 2014/03/09 14:00:09 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@
 # define	P4_RULE " ./puissance4 nb_lines, nb_columns"
 # define	P4_SIZE " The board must be at least 6 lines and 7 columns big."
 # define	P4_COORDS " Lines and columns must be numbers."
+# define	COL_FULL "Can't you see column is full\n...dumbass !"
+# define	OVER_COL \
+			"Check numbers over board and\nyou'll see how stupid you are."
+# define	COL_STR "POSITIVE NUMBERS meatbag !!"
 
 /*
 ** Type - Board value -> Print value
@@ -44,6 +48,7 @@ struct						s_gboard
 	int		nb_columns;
 	int		**board;
 	int		ia_id;
+	char	*error;
 };
 
 typedef struct		s_axe
@@ -61,11 +66,13 @@ void			ft_putstr_fd(const char *str, int fd);
 void			ft_putchar_fd(const char c, int fd);
 void			ft_putendl(const char *str);
 void			print_board(t_gboard *grid);
+void			print_index(t_gboard *grid, int *bloop, int *bindex);
 void			bzero_board(t_gboard *grid);
 void			ft_putstr(const char *str);
 void			ft_puterr(const char *str);
 void			ft_putchar(const char c);
 void			ft_putnbr(int number);
+void			board_error(t_gboard *grid);
 
 char			*ft_strjoin(const char *s1, const char *s2);
 char			*ft_strcpy(char *str, const char *src);
