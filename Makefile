@@ -6,7 +6,7 @@
 #    By: gleger <gleger@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/12/31 19:03:08 by gleger            #+#    #+#              #
-#    Updated: 2014/03/08 20:34:50 by fle-bach         ###   ########.fr        #
+#    Updated: 2014/03/09 00:21:29 by fle-bach         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@echo "\033[1;35;m[Linking] \t\t\033[0m: " | tr -d '\n'
-	$(CC) $(FLAGS) -o $@ $^ 
+	$(CC) $(FLAGS) -ltermcap -o $@ $^ 
 	@echo "\033[1;32;m[Success] \t\t\t\033[0m"
 
 %.o: %.c includes/p4.h
