@@ -6,13 +6,13 @@
 /*   By: fle-bach <fle-bach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 20:07:00 by fle-bach          #+#    #+#             */
-/*   Updated: 2014/03/08 21:10:44 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/09 11:35:34 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <p4.h>
 
-int			check_left_bis(t_gboard *p4, int player)
+int			check_left_bis(t_gboard *p4, int player, int nb)
 {
 	int		x;
 	int		y;
@@ -31,7 +31,7 @@ int			check_left_bis(t_gboard *p4, int player)
 				check++;
 			else
 				check = 0;
-			if (check == 4)
+			if (check == nb)
 				return (1);
 			x--;
 			y_bis--;
@@ -41,7 +41,7 @@ int			check_left_bis(t_gboard *p4, int player)
 	return (0);
 }
 
-int			check_left(t_gboard *p4, int player)
+int			check_left(t_gboard *p4, int player, int nb)
 {
 	int		x;
 	int		y;
@@ -60,17 +60,17 @@ int			check_left(t_gboard *p4, int player)
 				check++;
 			else
 				check = 0;
-			if (check == 4)
+			if (check == nb)
 				return (1);
 			x_bis--;
 			y--;
 		}
 		x--;
 	}
-	return (check_left_bis(p4, player));
+	return (check_left_bis(p4, player, nb));
 }
 
-int			check_right_bis(t_gboard *p4, int player)
+int			check_right_bis(t_gboard *p4, int player, int nb)
 {
 	int		x;
 	int		y;
@@ -89,7 +89,7 @@ int			check_right_bis(t_gboard *p4, int player)
 				check++;
 			else
 				check = 0;
-			if (check == 4)
+			if (check == nb)
 				return (1);
 			x++;
 			y_bis--;
@@ -99,7 +99,7 @@ int			check_right_bis(t_gboard *p4, int player)
 	return (0);
 }
 
-int			check_right(t_gboard *p4, int player)
+int			check_right(t_gboard *p4, int player, int nb)
 {
 	int		x;
 	int		y;
@@ -118,12 +118,12 @@ int			check_right(t_gboard *p4, int player)
 				check++;
 			else
 				check = 0;
-			if (check == 4)
+			if (check == nb)
 				return (1);
 			x_bis++;
 			y--;
 		}
 		x++;
 	}
-	return (check_right_bis(p4, player));
+	return (check_right_bis(p4, player, nb));
 }

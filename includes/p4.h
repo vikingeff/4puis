@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/23 12:15:33 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/09 09:44:46 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/09 11:35:12 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,12 @@ int				ft_good_check_l_c(int x, int y, t_gboard *p4, int cl);
 int				check_size(char *line, char *col, t_gboard *board);
 int				ft_check_three(int broad, int player, int check);
 int				check_three(t_gboard *p4, int player, int ok);
+int				check_right(t_gboard *p4, int player, int nb);
+int				check_left(t_gboard *p4, int player, int nb);
 int				check_double_empty(t_gboard *p4, int player);
 int				player(t_gboard *p4, char *cl, int player);
 int				ft_ia(t_gboard *p4, char *cl, int player);
 int				ft_play(t_gboard *p4, int y, int player);
-int				check_right(t_gboard *p4, int player);
-int				check_left(t_gboard *p4, int player);
 int				check_win(t_gboard *p4, int player);
 int				check_args(char *line, char *col);
 int				memset_board(t_gboard *grid);

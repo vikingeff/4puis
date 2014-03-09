@@ -6,7 +6,7 @@
 /*   By: fle-bach <fle-bach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/09 04:48:00 by fle-bach          #+#    #+#             */
-/*   Updated: 2014/03/09 09:31:53 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/09 11:42:43 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,12 @@ int		ft_three(t_gboard *p4, int player, t_axe p)
 {
 	int		check;
 
-	check = ft_lines_columns(p4, player, p, 0);
-	if (check == 2)
-		return (ft_good_check_l_c(p.x, p.y, p4, 0));
+	if (p.y < (p4->nb_columns - 3))
+	{
+		check = ft_lines_columns(p4, player, p, 0);
+		if (check == 2)
+			return (ft_good_check_l_c(p.x, p.y, p4, 0));
+	}
 	check = ft_lines_columns(p4, player, p, 1);
 	if (check == 2)
 		return (ft_good_check_l_c(p.x, p.y, p4, 1));
@@ -85,7 +88,7 @@ int		check_double_triple(t_gboard *p4, int player, int dt)
 	while (++p.x != p4->nb_lines)
 	{
 		p.y = -1;
-		while (++p.y != (p4->nb_columns - 3))
+		while (++p.y != p4->nb_columns)
 		{
 			if (dt == 0)
 			{

@@ -6,7 +6,7 @@
 /*   By: fle-bach <fle-bach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/09 04:38:07 by fle-bach          #+#    #+#             */
-/*   Updated: 2014/03/09 08:54:54 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/09 12:01:53 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_check_ia_win(t_gboard *p4, int player, int ok)
 		if ((ok == 0 || ok == 1)
 			&& (check = check_three(p4, player + 1, ok)) != 0)
 			return (check);
-		else if ((check = check_double_empty(p4, player)))
+		else if ((check = check_double_empty(p4, player + 1)))
 			return (check);
 	}
 	else
@@ -29,7 +29,7 @@ int		ft_check_ia_win(t_gboard *p4, int player, int ok)
 		if ((ok == 0 || ok == 1)
 			&& (check = check_three(p4, player - 1, ok)) != 0)
 			return (check);
-		else if ((check = check_double_empty(p4, player)))
+		else if ((check = check_double_empty(p4, player - 1)))
 			return (check);
 	}
 	return (0);
@@ -51,6 +51,7 @@ int		ft_check_ia(t_gboard *p4, int player)
 		return (check);
 	if ((check = check_double_empty(p4, player)))
 		return (check);
+	ft_putendl("rand");
 	return ((rand() % (p4->nb_columns - 1)) + 1);
 }
 
