@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 14:36:04 by fle-bach          #+#    #+#             */
-/*   Updated: 2014/03/09 00:37:41 by gleger           ###   ########.fr       */
+/*   Updated: 2014/03/09 01:55:03 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,34 @@ int			ft_player(void)
 		read(0, buff, BUFF_SIZE);
 	free(value);
 	return (temp_val);
+}
+
+int			player(t_gboard *p4, char *cl, int player)
+{
+	int		move;
+	int		win;
+
+	move = -1;
+	while (move == -1)
+	{
+		ft_putstr("player ");
+		ft_putnbr(player);
+		ft_putendl(" :");
+		if ((move = ft_player()) == -1)
+		{
+			ft_putstr(cl);
+			ft_putendl_fd("Columns are only numbers between ", 2);
+		}
+		else
+		{
+			ft_putstr(cl);
+			move = ft_play(p4, move, player);
+		}
+		print_board(p4);
+		if (move != -1)
+			win = check_win(p4, player);
+	}
+	return (win);
 }
 
 int			ft_play(t_gboard *p4, int y, int player)

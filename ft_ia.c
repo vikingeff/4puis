@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/09 00:15:56 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/09 01:30:11 by gleger           ###   ########.fr       */
+/*   Updated: 2014/03/09 01:56:04 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 int 		ia_play(t_gboard *grid, int play_id)
 {
-	
+	(void)grid;
+	(void)play_id;
+	return (0);
 }
