@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/23 15:03:18 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/09 01:55:05 by gleger           ###   ########.fr       */
+/*   Updated: 2014/03/09 12:12:09 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void			ft_p4(t_gboard *p4, char *cl)
 		if (ia != nb_player)
 			win = player(p4, cl, nb_player);
 		else
-			win = player(p4, cl, nb_player);
+			win = ft_ia(p4, cl, nb_player);
 		if (nb_player == 1)
 			nb_player++;
 		else

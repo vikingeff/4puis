@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/23 12:15:33 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/09 01:55:06 by gleger           ###   ########.fr       */
+/*   Updated: 2014/03/09 12:12:37 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,12 @@ struct						s_gboard
 	int		ia_id;
 };
 
+typedef struct		s_axe
+{
+	int				x;
+	int				y;
+}					t_axe;
+
 size_t			ft_strlen(const char *str);
 
 t_gboard		*init_game(void);
@@ -66,11 +72,16 @@ char			*ft_strcpy(char *str, const char *src);
 char			*ft_strcat(char *s1, const char *s2);
 char			*ft_strdup(const char *s1);
 
+int				ft_good_check_l_c(int x, int y, t_gboard *p4, int cl);
 int				check_size(char *line, char *col, t_gboard *board);
+int				ft_check_three(int broad, int player, int check);
+int				check_three(t_gboard *p4, int player, int ok);
+int				check_right(t_gboard *p4, int player, int nb);
+int				check_left(t_gboard *p4, int player, int nb);
+int				check_double_empty(t_gboard *p4, int player);
 int				player(t_gboard *p4, char *cl, int player);
+int				ft_ia(t_gboard *p4, char *cl, int player);
 int				ft_play(t_gboard *p4, int y, int player);
-int				check_right(t_gboard *p4, int player);
-int				check_left(t_gboard *p4, int player);
 int				check_win(t_gboard *p4, int player);
 int				check_args(char *line, char *col);
 int				memset_board(t_gboard *grid);

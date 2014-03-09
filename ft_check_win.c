@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 19:25:06 by fle-bach          #+#    #+#             */
-/*   Updated: 2014/03/09 01:30:07 by gleger           ###   ########.fr       */
+/*   Updated: 2014/03/09 12:16:52 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ int			check_lines(t_gboard *p4, int player)
 			else
 				check = 0;
 			if (check == 4)
-				return (check);
+				return (1);
 			y++;
 		}
 		x--;
 	}
-	return (check);
+	return (0);
 }
 
 int			check_columns(t_gboard *p4, int player)
@@ -56,18 +56,18 @@ int			check_columns(t_gboard *p4, int player)
 			else
 				check = 0;
 			if (check == 4)
-				return (check);
+				return (1);
 			x--;
 		}
 		y++;
 	}
-	return (check);
+	return (0);
 }
 
 int			check_win(t_gboard *p4, int player)
 {
-	if (check_lines(p4, player) == 4 || check_columns(p4, player) == 4
-		|| check_left(p4, player) == 4 || check_right(p4, player) == 4)
+	if (check_lines(p4, player) == 1 || check_columns(p4, player) == 1
+		|| check_left(p4, player, 4) == 1 || check_right(p4, player, 4) == 1)
 	{
 		ft_putstr("player ");
 		ft_putchar((player + 48));
