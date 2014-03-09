@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_win_diag.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-bach <fle-bach@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 20:07:00 by fle-bach          #+#    #+#             */
-/*   Updated: 2014/03/08 21:10:44 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/09 01:30:07 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ int			check_left_bis(t_gboard *p4, int player)
 			else
 				check = 0;
 			if (check == 4)
-				return (1);
+				return (check);
 			x--;
 			y_bis--;
 		}
 		y--;
 	}
-	return (0);
+	return (check);
 }
 
 int			check_left(t_gboard *p4, int player)
@@ -61,7 +61,7 @@ int			check_left(t_gboard *p4, int player)
 			else
 				check = 0;
 			if (check == 4)
-				return (1);
+				return (check);
 			x_bis--;
 			y--;
 		}
@@ -90,13 +90,13 @@ int			check_right_bis(t_gboard *p4, int player)
 			else
 				check = 0;
 			if (check == 4)
-				return (1);
+				return (check);
 			x++;
 			y_bis--;
 		}
 		y--;
 	}
-	return (0);
+	return (check);
 }
 
 int			check_right(t_gboard *p4, int player)
@@ -119,7 +119,7 @@ int			check_right(t_gboard *p4, int player)
 			else
 				check = 0;
 			if (check == 4)
-				return (1);
+				return (check);
 			x_bis++;
 			y--;
 		}

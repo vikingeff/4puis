@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/23 12:15:33 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/08 21:26:33 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/09 01:30:08 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
+# include <time.h>
 
 # define	BUFF_SIZE 1
 
@@ -40,6 +41,7 @@ struct						s_gboard
 	int		nb_lines;
 	int		nb_columns;
 	int		**board;
+	int		ia_id;
 };
 
 size_t			ft_strlen(const char *str);

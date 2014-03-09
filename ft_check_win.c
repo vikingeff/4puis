@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_win.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-bach <fle-bach@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 19:25:06 by fle-bach          #+#    #+#             */
-/*   Updated: 2014/03/08 21:08:43 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/09 01:30:07 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ int			check_lines(t_gboard *p4, int player)
 			else
 				check = 0;
 			if (check == 4)
-				return (1);
+				return (check);
 			y++;
 		}
 		x--;
 	}
-	return (0);
+	return (check);
 }
 
 int			check_columns(t_gboard *p4, int player)
@@ -56,22 +56,22 @@ int			check_columns(t_gboard *p4, int player)
 			else
 				check = 0;
 			if (check == 4)
-				return (1);
+				return (check);
 			x--;
 		}
 		y++;
 	}
-	return (0);
+	return (check);
 }
 
 int			check_win(t_gboard *p4, int player)
 {
-	if (check_lines(p4, player) == 1 || check_columns(p4, player) == 1
-		|| check_left(p4, player) == 1 || check_right(p4, player) == 1)
+	if (check_lines(p4, player) == 4 || check_columns(p4, player) == 4
+		|| check_left(p4, player) == 4 || check_right(p4, player) == 4)
 	{
 		ft_putstr("player ");
 		ft_putchar((player + 48));
-		ft_putendl(" won.");
+		ft_putendl(" wins.");
 		return (1);
 	}
 	return (0);

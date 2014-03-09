@@ -6,11 +6,12 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/23 15:03:18 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/08 22:54:27 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/09 01:30:18 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <p4.h>
+#include <stdio.h>
 
 void			show_usage(void)
 {
@@ -33,7 +34,7 @@ int				check_poss(t_gboard *p4)
 		y++;
 	}
 	if (check == 0)
-		ft_putendl("match null");
+		ft_putendl("It's a draw.");
 	return (check);
 }
 
@@ -42,8 +43,10 @@ int				main(int argc, char **argv)
 	t_gboard			*p4;
 	int					move;
 	int					win;
+	int					game_index;
 
 	win = 0;
+	game_index = 0;
 	if ((p4 = init_game()) == NULL)
 		return (-1);
 	if (argc != 3)
@@ -57,8 +60,12 @@ int				main(int argc, char **argv)
 			return (-1);
 		bzero_board(p4);
 		print_board(p4);
+		srand(time(NULL));
+		p4->ia_id = rand() % 2 + 1;
+		printf("%d\n",ia_id);
 		while (win == 0 && check_poss(p4))
 		{
+			game_index++;
 			move = -1;
 			while (move == -1)
 			{
