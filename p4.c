@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/23 15:03:18 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/08 22:54:27 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/09 01:28:51 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,39 @@ int				check_poss(t_gboard *p4)
 	return (check);
 }
 
+void			ft_p4(t_gboard *p4, char *cl)
+{
+	int			win;
+	int			nb_player;
+	int			ia;
+
+	srand(time(NULL));
+	ia = rand() % 2 + 1;
+	nb_player = 1;
+	win = 0;
+	bzero_board(p4);
+	print_board(p4);
+	while (win == 0 && check_poss(p4))
+	{
+		if (ia != nb_player)
+			win = player(p4, cl, nb_player);
+		else
+			win = player(p4, cl, nb_player);
+		if (nb_player == 1)
+			nb_player++;
+		else
+			nb_player--;
+	}
+}
+
 int				main(int argc, char **argv)
 {
 	t_gboard			*p4;
-	int					move;
-	int					win;
+	char				*cl;
 
-	win = 0;
+	tgetent(NULL, NULL);
+	if ((cl = tgetstr("cl", NULL)) == NULL)
+		return (-1);
 	if ((p4 = init_game()) == NULL)
 		return (-1);
 	if (argc != 3)
@@ -55,39 +81,7 @@ int				main(int argc, char **argv)
 	{
 		if (check_size(argv[1], argv[2], p4) == -1)
 			return (-1);
-		bzero_board(p4);
-		print_board(p4);
-		while (win == 0 && check_poss(p4))
-		{
-			move = -1;
-			while (move == -1)
-			{
-				ft_putendl("player 1 :");
-				if ((move = ft_player()) == -1)
-					ft_putendl_fd("Columns are only numbers between ", 2);
-				else
-					move = ft_play(p4, move, 1);
-				if (move != -1)
-				{
-					win = check_win(p4, 1);
-					print_board(p4);
-				}
-			}
-			move = -1;
-			while (move == -1 && win != 1)
-			{
-				ft_putendl("player 2 :");
-				if ((move = ft_player()) == -1)
-					ft_putendl_fd("Columns are only numbers between ", 2);
-				else
-					move = ft_play(p4, move, 2);
-				if (move != -1)
-				{
-					win = check_win(p4, 2);
-					print_board(p4);
-				}
-			}
-		}
+		ft_p4(p4, cl);		
 	}
 	return (0);
 }

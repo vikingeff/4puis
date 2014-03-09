@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/23 12:15:33 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/08 21:26:33 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/09 01:02:06 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
+# include <termcap.h>
+# include <termios.h>
+# include <time.h>
 
 # define	BUFF_SIZE 1
 
@@ -63,6 +66,7 @@ char			*ft_strcat(char *s1, const char *s2);
 char			*ft_strdup(const char *s1);
 
 int				check_size(char *line, char *col, t_gboard *board);
+int				player(t_gboard *p4, char *cl, int player);
 int				ft_play(t_gboard *p4, int y, int player);
 int				check_right(t_gboard *p4, int player);
 int				check_left(t_gboard *p4, int player);
