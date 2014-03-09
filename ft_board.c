@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 12:24:59 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/08 21:38:58 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/09 12:25:31 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,19 @@ void			print_board(t_gboard *grid)
 		index = -1;
 		while (++index < grid->nb_columns)
 		{
-			val = grid->board[loop][index];
-			if (val == 0)
-				ft_putchar('_');
-			else if (val == 1)
-				ft_putstr("\033[0;31mR\033[0;37m");
-			else if (val == 2)
-				ft_putstr("\033[0;33mJ\033[0;37m");
-			ft_putchar(' ');
+			/*if (loop == -1)
+				ft_putnbr(index+1);
+			else*/
+			{
+				val = grid->board[loop][index];
+				if (val == 0)
+					ft_putchar('_');
+				else if (val == 1)
+					ft_putstr("\033[0;31mR\033[0;37m");
+				else if (val == 2)
+					ft_putstr("\033[0;33mJ\033[0;37m");
+				ft_putchar(' ');
+			}
 		}
 		ft_putchar('\n');
 	}
